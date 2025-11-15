@@ -1,0 +1,68 @@
+---
+layout: default
+title: Inicio
+description: "Servicios de reparación de computadoras, mantenimiento preventivo y soporte técnico en Tijuana. Técnicos certificados y garantía en todos los servicios."
+keywords: "reparación computadoras Tijuana, mantenimiento PC, soporte técnico, servicios tecnológicos"
+image: /assets/images/hero-image.jpg
+---
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">{{ site.company.name }}</h1>
+            <p class="hero-subtitle">{{ site.company.tagline }}</p>
+            <div class="hero-cta">
+                <a href="{{ '/servicios/' | relative_url }}" class="btn btn-primary">Ver Servicios</a>
+                <a href="{{ '/contacto/' | relative_url }}" class="btn btn-secondary">Contáctanos</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured-services">
+    <div class="container">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Reparación de Computadoras</h3>
+                <p>Diagnóstico y reparación de hardware y software para equipos de escritorio y portátiles.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Mantenimiento Preventivo</h3>
+                <p>Servicios de mantenimiento para mantener tus equipos en óptimas condiciones.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Soporte Técnico</h3>
+                <p>Asistencia técnica remota y presencial para resolver problemas tecnológicos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Últimas Publicaciones</h2>
+            <a href="{{ '/blog/' | relative_url }}" class="see-all">Ver Todas →</a>
+        </div>
+        
+        <div class="posts-grid">
+            {% for post in site.posts limit:3 %}
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="post-number">{{ forloop.index }}</span>
+                    <time class="post-date">{{ post.date | date: "%d.%m.%Y" }}</time>
+                </div>
+                <h3 class="post-title">
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
+                <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                <a href="{{ post.url | relative_url }}" class="post-link">Leer más →</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

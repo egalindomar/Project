@@ -1,0 +1,217 @@
+---
+layout: default
+---
+
+<article class="post-page">
+    <div class="container post-container">
+        <header class="post-page-header">
+            <div class="post-meta-full">
+                <time class="post-date-full">{{ page.date | date: "%d de %B, %Y" }}</time>
+                {% if page.author %}
+                <span class="post-author-full">Por {{ page.author }}</span>
+                {% endif %}
+            </div>
+            <h1 class="post-page-title">{{ page.title }}</h1>
+            {% if page.excerpt %}
+            <p class="post-page-excerpt">{{ page.excerpt | strip_html }}</p>
+            {% endif %}
+        </header>
+
+        <div class="post-content">
+            {{ content }}
+        </div>
+
+        <footer class="post-page-footer">
+            <div class="post-tags">
+                {% if page.tags %}
+                <strong>Tags:</strong>
+                {% for tag in page.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="post-navigation">
+                {% if page.previous.url %}
+                <a href="{{ page.previous.url | relative_url }}" class="nav-link nav-prev">
+                    ← {{ page.previous.title | truncatewords: 5 }}
+                </a>
+                {% endif %}
+                
+                {% if page.next.url %}
+                <a href="{{ page.next.url | relative_url }}" class="nav-link nav-next">
+                    {{ page.next.title | truncatewords: 5 }} →
+                </a>
+                {% endif %}
+            </div>
+
+            <div class="back-to-blog">
+                <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary">← Volver al Blog</a>
+            </div>
+        </footer>
+    </div>
+</article>
+
+<style>
+.post-page {
+    background: var(--bg-white);
+    padding: 4rem 0;
+    min-height: 70vh;
+}
+
+.post-container {
+    max-width: 800px;
+}
+
+.post-page-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.post-meta-full {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.post-page-title {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.post-page-excerpt {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.post-content h2 {
+    font-size: 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-content h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.post-content ul,
+.post-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.post-content code {
+    background: var(--bg-light);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.post-content pre {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.post-content blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.post-page-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.post-tags {
+    margin-bottom: 2rem;
+}
+
+.tag {
+    display: inline-block;
+    background: var(--bg-light);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.nav-link {
+    flex: 1;
+    padding: 1rem;
+    background: var(--bg-light);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: background 0.3s;
+}
+
+.nav-link:hover {
+    background: var(--border-color);
+}
+
+.nav-prev {
+    text-align: left;
+}
+
+.nav-next {
+    text-align: right;
+}
+
+.back-to-blog {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .post-page-title {
+        font-size: 2rem;
+    }
+    
+    .post-navigation {
+        flex-direction: column;
+    }
+}
+</style>

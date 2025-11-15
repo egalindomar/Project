@@ -1,0 +1,112 @@
+# Configuración del sitio
+title: "ServTecR - Servicios Tecnológicos de Rosarito"
+description: "Mantenimiento preventivo, reparación de computadoras y soporte técnico en Rosarito."
+baseurl: "" # El subpath de tu sitio, ej: /blog
+url: "https://tu-usuario.github.io" # IMPORTANTE: Cambia esto por tu URL real
+
+# SEO y Metadata
+author: "SerTecR"
+twitter:
+  username: servtecrosarito
+  card: summary_large_image
+
+# Open Graph / Facebook
+logo: /assets/images/logo.png
+social:
+  name: ServTecR
+  links:
+    - https://facebook.com/servtecrosarito
+    - https://twitter.com/servtecrosarito
+    - https://instagram.com/servtecrosarito
+
+# Información de la empresa (Schema.org)
+company:
+  name: "ServTecRosarito"
+  legal_name: "Servicios Tecnológicos de Rosarito"
+  tagline: "Soluciones tecnológicas a tu alcance"
+  email: "contacto@servtecrosarito.com"
+  phone: "+52 229 463 2053"
+  address:
+    street: "Roble S/N"
+    city: "Playas de Rosarito"
+    region: "Baja California"
+    postal_code: "22706"
+    country: "MX"
+  geo:
+    latitude: "32.5149"
+    longitude: "-117.0382"
+  founded: "2020"
+  logo: "/assets/images/logo.png"
+
+# Navegación
+navigation:
+  - title: "Inicio"
+    url: "/"
+  - title: "Servicios"
+    url: "/servicios/"
+  - title: "Nosotros"
+    url: "/nosotros/"
+  - title: "Blog"
+    url: "/blog/"
+  - title: "Contacto"
+    url: "/contacto/"
+
+# Idioma y localización
+lang: es-MX
+timezone: America/Tijuana
+
+# Plugins para SEO
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Jekyll SEO Tag settings
+tagline: "Servicios tecnológicos profesionales en Tijuana"
+
+# Feed settings
+feed:
+  path: feed.xml
+  excerpt_only: true
+
+# Sitemap settings
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/default-og-image.jpg
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# Excluir archivos
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - LICENCIA.md
+
+# Defaults para mejor SEO
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "TechServ Team"
+      image: /assets/images/default-post-image.jpg
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      image: /assets/images/default-og-image.jpg
+
+# Google Analytics (opcional)
+google_analytics: G-XXXXXXXXXX # Reemplaza con tu ID
+
+# Google Search Console (opcional)
+google_site_verification: "tu-codigo-de-verificacion"

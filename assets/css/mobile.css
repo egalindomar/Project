@@ -1,0 +1,359 @@
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    position: relative;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        order: 3;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+    }
+    
+    .nav-brand {
+        order: 1;
+    }
+    
+    .nav-menu {
+        order: 2;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg-white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        padding: 2rem;
+        overflow-y: auto;
+        z-index: 1000;
+    }
+    
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu a {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+    
+    .nav-menu a:active {
+        transform: scale(0.95);
+    }
+    
+    /* Navbar con animación */
+    .navbar {
+        transition: transform 0.3s ease;
+    }
+    
+    /* Overlay cuando menú está abierto */
+    body.menu-open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+        backdrop-filter: blur(3px);
+    }
+}
+
+/* Touch-friendly Elements */
+@media (hover: none) and (pointer: coarse) {
+    /* Aumentar áreas de tap */
+    .btn {
+        padding: 1rem 2rem;
+        min-height: 48px;
+    }
+    
+    .post-card a,
+    .service-card {
+        padding: 1.75rem;
+    }
+    
+    input,
+    textarea,
+    select {
+        font-size: 16px; /* Prevenir zoom en iOS */
+        padding: 0.875rem;
+    }
+    
+    /* Feedback táctil */
+    .btn:active,
+    .post-card:active,
+    .service-card:active {
+        opacity: 0.8;
+        transform: scale(0.98);
+    }
+}
+
+/* Optimización de tipografía móvil */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+    
+    p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Tablas responsive */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Imágenes responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Videos responsive */
+iframe,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mejoras de accesibilidad móvil */
+@media (max-width: 768px) {
+    /* Focus visible para teclados */
+    a:focus,
+    button:focus,
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+    }
+    
+    /* Skip to content link */
+    .skip-to-content {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--accent-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        z-index: 100;
+    }
+    
+    .skip-to-content:focus {
+        top: 0;
+    }
+}
+
+/* Formularios móvil */
+@media (max-width: 768px) {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        font-size: 16px; /* Evita zoom en iOS */
+        border-radius: 8px;
+    }
+    
+    .form-group label {
+        font-size: 0.95rem;
+    }
+    
+    /* Botones de formulario */
+    .form-group button[type="submit"],
+    .form-group input[type="submit"] {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Loading states para móvil */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top-color: var(--accent-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Optimización de performance */
+@media (max-width: 768px) {
+    /* Reducir animaciones para ahorrar batería */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+    
+    /* Lazy loading placeholder */
+    img[data-src] {
+        background: var(--bg-light);
+        min-height: 200px;
+    }
+}
+
+/* Pull to refresh indicator */
+@media (max-width: 768px) {
+    body {
+        overscroll-behavior-y: contain;
+    }
+}
+
+/* Safe areas para notch de iPhone */
+@supports (padding: max(0px)) {
+    .navbar,
+    .hero,
+    .footer {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+    }
+    
+    .navbar {
+        padding-top: max(1rem, env(safe-area-inset-top));
+    }
+    
+    .footer {
+        padding-bottom: max(2rem, env(safe-area-inset-bottom));
+    }
+}
+
+/* Dark mode support (si lo implementas) */
+@media (prefers-color-scheme: dark) {
+    /* Implementar después si lo necesitas */
+}
+
+/* Landscape mode en móvil */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        padding: 2rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .nav-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+        max-height: 100vh;
+    }
+}
+
+/* Fix para height en iOS */
+@supports (-webkit-touch-callout: none) {
+    .nav-menu {
+        height: -webkit-fill-available;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .footer,
+    .hamburger,
+    .btn {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+    
+    a {
+        text-decoration: underline;
+        color: #000;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+}

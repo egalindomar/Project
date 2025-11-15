@@ -1,0 +1,112 @@
+---
+layout: default
+title: Página No Encontrada
+permalink: /404.html
+---
+
+<section class="content-page">
+    <div class="container">
+        <div class="error-404">
+            <h1 class="error-number">404</h1>
+            <h2>Página No Encontrada</h2>
+            <p>Lo sentimos, la página que buscas no existe o ha sido movida.</p>
+            
+            <div class="error-actions">
+                <a href="{{ '/' | relative_url }}" class="btn btn-primary">Ir al Inicio</a>
+                <a href="{{ '/servicios/' | relative_url }}" class="btn btn-secondary">Ver Servicios</a>
+            </div>
+
+            <div class="helpful-links">
+                <h3>Enlaces útiles:</h3>
+                <ul>
+                    <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
+                    <li><a href="{{ '/servicios/' | relative_url }}">Servicios</a></li>
+                    <li><a href="{{ '/nosotros/' | relative_url }}">Nosotros</a></li>
+                    <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+                    <li><a href="{{ '/contacto/' | relative_url }}">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.error-404 {
+    text-align: center;
+    padding: 4rem 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.error-number {
+    font-size: 8rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    line-height: 1;
+}
+
+.error-404 h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.error-404 > p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.helpful-links {
+    text-align: left;
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.helpful-links h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.helpful-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.helpful-links li {
+    margin-bottom: 0.8rem;
+}
+
+.helpful-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.helpful-links a:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .error-number {
+        font-size: 5rem;
+    }
+    
+    .error-404 h2 {
+        font-size: 2rem;
+    }
+    
+    .error-actions {
+        flex-direction: column;
+    }
+}
+</style>

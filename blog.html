@@ -1,0 +1,156 @@
+---
+layout: default
+title: "Blog de Tecnología y Mantenimiento"
+description: "Artículos, tutoriales y consejos sobre tecnología, mantenimiento de computadoras, reparación de hardware y más. Mantente informado con nuestro blog."
+keywords: "blog tecnología, tutoriales computadoras, consejos mantenimiento PC, guías reparación"
+permalink: /blog/
+---
+
+<section class="content-page">
+    <div class="container">
+        <h1>Blog</h1>
+        <p>Artículos, tutoriales y consejos sobre tecnología y mantenimiento de equipos.</p>
+
+        <div class="blog-posts">
+            {% for post in site.posts %}
+            <article class="blog-post-card">
+                <div class="post-header">
+                    <div class="post-meta-blog">
+                        <span class="post-number-blog">{{ forloop.index }}</span>
+                        <time class="post-date-blog">{{ post.date | date: "%d.%m.%Y" }}</time>
+                    </div>
+                    {% if post.featured %}
+                    <span class="featured-badge">Destacado</span>
+                    {% endif %}
+                </div>
+                
+                <h2 class="blog-post-title">
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h2>
+                
+                {% if post.excerpt %}
+                <p class="blog-post-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+                {% endif %}
+                
+                <div class="post-footer">
+                    <span class="post-author">Por {{ post.author | default: site.company.name }}</span>
+                    <a href="{{ post.url | relative_url }}" class="read-more">Leer artículo →</a>
+                </div>
+            </article>
+            {% endfor %}
+            
+            {% if site.posts.size == 0 %}
+            <div class="no-posts">
+                <p>No hay publicaciones aún. ¡Pronto habrá contenido nuevo!</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<style>
+.blog-posts {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.blog-post-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.post-meta-blog {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.post-number-blog {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--text-primary);
+}
+
+.post-date-blog {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.featured-badge {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.blog-post-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.blog-post-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.blog-post-title a:hover {
+    color: var(--accent-color);
+}
+
+.blog-post-excerpt {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.post-author {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.read-more {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.read-more:hover {
+    color: var(--accent-color);
+}
+
+.no-posts {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+}
+</style>
