@@ -106,7 +106,7 @@ defaults:
       image: /assets/images/default-og-image.jpg
 
 # Google Analytics (opcional)
-google_analytics: G-EWVW1Y2W3H # Reemplaza con tu ID
+google_analytics: G-PRFWSZZM9L # Reemplaza con tu ID
 
 # Google Search Console (opcional)
 google_site_verification: "BfDKv0lpYEJlVWI95peooAhFssZXI5--r8foVtDSwoU"
