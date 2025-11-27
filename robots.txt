@@ -2,11 +2,13 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: https://www.servtecrosarito.com/sitemap.xml
+Sitemap: https://servtecrosarito.com/sitemap.xml
 
-# Disallow
+# Disallow admin y archivos internos
 Disallow: /assets/
 Disallow: /*.json$
+Disallow: /_*
 
 # Crawl-delay
 Crawl-delay: 0
